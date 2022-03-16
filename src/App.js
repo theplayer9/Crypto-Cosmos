@@ -13,7 +13,7 @@ const App = () => {
       <div>
         <Header />
         <Route path="/" component={HomePage} />
-        <Route path="/" component={CoinPage} />
+        <Route path="/coin/:id" component={CoinPage} />
       </div>
     </BrowserRouter>
   );
