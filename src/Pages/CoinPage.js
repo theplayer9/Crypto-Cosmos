@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const CoinPage = () => {
-  return <div>CoinPage asdf</div>;
-};
+  return (
+    <div>CoinPage</div>
+  )
+}
 
-export default CoinPage;
+export default CoinPage

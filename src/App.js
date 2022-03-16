@@ -19,7 +19,7 @@ const App = () => {
       <div className={classes.App}>
         <Header  />
         <Route path="/" component={HomePage}   />
-        <Route path="/coin/:id" component={CoinPage} />
+        <Route path="/coins/:id" component={CoinPage} />
       </div>
     </BrowserRouter>
   );
