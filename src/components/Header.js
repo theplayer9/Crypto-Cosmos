@@ -7,9 +7,10 @@ import {
   Typography,
   Select,
   makeStyles,
+  createTheme,
+  ThemeProvider,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-
 
 const useStyle = makeStyles(() => ({
   title: {
@@ -21,35 +22,46 @@ const useStyle = makeStyles(() => ({
   },
 }));
 
+
 const Header = () => {
   const classes = useStyle();
   const history = useHistory();
+  const darkTheme = createTheme(() => ({
+    palette: {
+      primary: {
+        main: "#fff",
+      },
+      type: "dark",
+    },
+  }));
 
   return (
-    <Appbar position="static" color="primary">
-      <Container>
-        <Toolbar>
-          <Typography
-            onClick={() => history.push("/")}
-            className={classes.title}
-          >
-            Crypto Cosmos{" "}
-          </Typography>
-          <Select
-            variant="outlined"
-            style={{
-              width: 100,
-              height: 40,
-              marginLeft: 10,
-              backgroundColor: "white",
-            }}
-          >
-            <MenuItem value="USD">USD</MenuItem>
-            <MenuItem value="INR">INR</MenuItem>
-          </Select>
-        </Toolbar>
-      </Container>
-    </Appbar>
+    <ThemeProvider theme={darkTheme}>
+      <Appbar position="static" color="transparent">
+        <Container>
+          <Toolbar>
+            <Typography
+              onClick={() => history.push("/")}
+              className={classes.title} variant="h4"
+            >
+              Crypto Cosmos{" "}
+            </Typography>
+            <Select
+              variant="outlined"
+              style={{
+                width: 100,
+                height: 40,
+                marginRight: 10,
+                backgroundColor: "white",
+              }}
+            >
+              <MenuItem value="USD">USD</MenuItem>
+              <MenuItem value="INR">INR</MenuItem>
+            </Select>
+          </Toolbar>
+        </Container>
+      </Appbar>
+    </ThemeProvider>
   );
 };
 
