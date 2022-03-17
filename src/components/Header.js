@@ -11,6 +11,7 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 
 const useStyle = makeStyles(() => ({
   title: {
@@ -26,6 +27,8 @@ const useStyle = makeStyles(() => ({
 const Header = () => {
   const classes = useStyle();
   const history = useHistory();
+  const {currency,setCurrency} = CryptoState()
+  console.log(currency)
   const darkTheme = createTheme(() => ({
     palette: {
       primary: {
@@ -35,10 +38,13 @@ const Header = () => {
     },
   }));
 
+ 
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Appbar position="static" color="transparent">
         <Container>
+          
           <Toolbar>
             <Typography
               onClick={() => history.push("/")}
@@ -46,6 +52,7 @@ const Header = () => {
             >
               Crypto Cosmos{" "}
             </Typography>
+            
             <Select
               variant="outlined"
               style={{
@@ -53,7 +60,8 @@ const Header = () => {
                 height: 40,
                 marginRight: 10,
                 backgroundColor: "white",
-              }}
+              }} onChange={(e)=>setCurrency(e.target.value)} value={currency}
+              
             >
               <MenuItem value="USD">USD</MenuItem>
               <MenuItem value="INR">INR</MenuItem>
