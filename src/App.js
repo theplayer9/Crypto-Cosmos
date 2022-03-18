@@ -27,11 +27,11 @@ const App = () => {
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
-          background: {
-            color: {
-              value: "#0d47a1",
-            },
-          },
+          // background: {
+          //   color: {
+          //     value: "#0d47a1",
+          //   },
+          // },
           fpsLimit: 120,
           interactivity: {
             events: {
@@ -80,7 +80,7 @@ const App = () => {
               enable: true,
               outMode: "bounce",
               random: false,
-              speed: 6,
+              speed: 5,
               straight: false,
             },
             number: {
