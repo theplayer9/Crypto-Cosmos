@@ -3,10 +3,12 @@ import Container from '@material-ui/core/Container'
 import React from 'react'
 const useStyle = makeStyles(()=>({
     banner:{
-          backgroundImage:"url(./img2.jpg)"
+          backgroundImage:"url(./img2.jpg)",
+        //   borderRadius:50
+        //   backgroundRepeat: "repeat-y"
     },
     bannerContent:{
-        height:400,
+        height:450,
         display:"flex",
         flexDirection:"column",
         paddingTop:25,
