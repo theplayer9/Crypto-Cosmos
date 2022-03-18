@@ -80,7 +80,7 @@ const App = () => {
               enable: true,
               outMode: "bounce",
               random: false,
-              speed: 5,
+              speed: 3,
               straight: false,
             },
             number: {
@@ -94,7 +94,11 @@ const App = () => {
               value: 0.5,
             },
             shape: {
-              type: "circle",
+              type: "circle"
+              // type: "image",
+              // image: {
+              //   src: "https://png.pngtree.com/element_our/20190601/ourmid/pngtree-yellow-bitcoin-free-map-image_1369249.jpg",
+              // },
             },
             size: {
               random: true,
