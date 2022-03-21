@@ -22,12 +22,12 @@ const useStyle = makeStyles(() => ({
     fontFamily: "Montserrat",
     textAlign: "center",
   },
-  subtitle:{
-      color:"darkgrey",
-      textTransform:"capitalize",
-      fontFamily:"Montserrat",
-      textAlign:"center"
-  }
+  subtitle: {
+    color: "darkgrey",
+    textTransform: "capitalize",
+    fontFamily: "Montserrat",
+    textAlign: "center",
+  },
 }));
 
 const Banner = () => {
@@ -41,8 +41,8 @@ const Banner = () => {
         Crypto Cosmos
       </Typography>
       <Typography variant="subtitle2" className={classes.subtitle}>
-            Be on top of all your favorite Crypto
-          </Typography>
+        Be on top of all your favorite Crypto
+      </Typography>
     </>
   );
 };
