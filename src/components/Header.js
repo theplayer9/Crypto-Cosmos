@@ -21,6 +21,10 @@ const useStyle = makeStyles(() => ({
     fontWeight: "bold",
     cursor: "pointer",
   },
+  header:{
+    backgroundColor:"#000000"
+
+  }
 }));
 
 
@@ -42,7 +46,7 @@ const Header = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Appbar position="static" color="transparent">
+      <Appbar position="fixed" color="transparent" className={classes.header}>
         <Container>
           
           <Toolbar>
