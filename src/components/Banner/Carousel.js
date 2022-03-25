@@ -50,7 +50,7 @@ const Carousel = () => {
   const items = trending.map((coin) => {
     return (
       <Link className={classes.carousleItem} to={`/coins/${coin.id}`}>
-        <img />
+        <img src={coin.image} alt={coin.name} height="80" />
       </Link>
     );
   });
