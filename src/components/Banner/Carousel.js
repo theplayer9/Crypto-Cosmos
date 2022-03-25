@@ -1,5 +1,10 @@
 import { makeStyles } from '@material-ui/core'
-import React from 'react'
+import axios from 'axios'
+import {CryptoState} from '../../CryptoContext'
+import {TrendingCoins} from '../../config/Api'
+import React, { useEffect } from 'react'
+
+
 
 
 const useStyle = makeStyles(()=>({
@@ -14,9 +19,14 @@ const useStyle = makeStyles(()=>({
 
 const Carousel = () => {
     const classes = useStyle()
-    const fetchTrendingCoins =()=>{
-        
+    const {currency} = CryptoState()
+    const fetchTrendingCoins = async (cry)=>{
+        const {data} = await axios.get(TrendingCoins(cry))
+        console.log(data)
     }
+    useEffect(()=>{
+        fetchTrendingCoins(currency)
+    },[currency])
   
   return (
       
