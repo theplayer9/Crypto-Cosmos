@@ -27,7 +27,7 @@ const useStyle = makeStyles(() => ({
 const Carousel = () => {
   const classes = useStyle();
   const [trending, setTrending] = useState([]);
-  const { currency } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
   const fetchTrendingCoins = async (cry) => {
     const { data } = await axios.get(TrendingCoins(cry));
@@ -40,17 +40,36 @@ const Carousel = () => {
 
   const responsive = {
     0: {
-      items: 1,
+      items: 2,
     },
     500: {
-      items: 3,
+      items: 4,
     },
   };
 
   const items = trending.map((coin) => {
+    let profit = coin.price_change_percentage_24h >= 0;
+
     return (
       <Link className={classes.carousleItem} to={`/coins/${coin.id}`}>
-        <img src={coin.image} alt={coin.name} height="80" />
+        <img
+          src={coin.image}
+          alt={coin.name}
+          height="80"
+          style={{ marginBottom: 10 }}
+        />
+        <span>
+          {coin?.symbol}
+          &nbsp;
+          <span>
+            {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+          </span>
+        </span>
+        <span style={{ fontSize: 22, fontWeight: 500 }}>
+          {symbol}
+          {coin?.current_price}
+          {/* {numberWithCommas(coin?.current_price.toFixed(2)) */}
+        </span>
       </Link>
     );
   });
@@ -63,7 +82,8 @@ const Carousel = () => {
         autoPlayInterval={1000}
         animationDuration={1500}
         disableDotsControls
-        responsive
+        disableButtonsControls
+        responsive={responsive}
         items={items}
         autoPlay
       />
