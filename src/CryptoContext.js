@@ -1,15 +1,15 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const Crypto = createContext();  //here we have created the object(Crypto) of the createContext
 
-const CryptoContext = ({ children }) => {
+const CryptoContext = ({children}) => {
     const [currency,setCurrency] = useState("INR")
     const [symbol, setSymbol] = useState("₹")
 
 
-    useState(()=>{
+    useEffect(()=>{
         if (currency==="INR") setSymbol("₹")
-        if (currency==="INR") setSymbol('$')
+        if (currency==="USD") setSymbol('$')
     },[currency])
 
 

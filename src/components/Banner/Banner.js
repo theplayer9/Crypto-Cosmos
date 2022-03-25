@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/styles";
 import Container from "@material-ui/core/Container";
 import React from "react";
 import { Typography } from "@material-ui/core";
+import Carousel from "./Carousel";
 const useStyle = makeStyles(() => ({
   banner: {
     backgroundImage: "url(./img2.jpg)",
@@ -43,6 +44,7 @@ const Banner = () => {
       <Typography variant="subtitle2" className={classes.subtitle}>
         Be on top of all your favorite Crypto
       </Typography>
+      <Carousel />
     </>
   );
 };
