@@ -5,6 +5,7 @@ import { TrendingCoins } from "../../config/Api";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AliceCarousel from "react-alice-carousel";
+import { Link } from "react-router-dom";
 
 const useStyle = makeStyles(() => ({
   carousel: {
@@ -12,6 +13,14 @@ const useStyle = makeStyles(() => ({
     display: "flex",
     alignItems: "center",
     // color:"red"
+  },
+  carousleItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    cursor: "pointer",
+    textTransform: "uppercase",
+    color: "white",
   },
 }));
 
@@ -38,6 +47,14 @@ const Carousel = () => {
     },
   };
 
+  const items = trending.map((coin) => {
+    return (
+      <Link className={classes.carousleItem} to={`/coins/${coin.id}`}>
+        <img />
+      </Link>
+    );
+  });
+
   return (
     <div className={classes.carousel}>
       <AliceCarousel
@@ -47,6 +64,8 @@ const Carousel = () => {
         animationDuration={1500}
         disableDotsControls
         responsive
+        items={items}
+        autoPlay
       />
     </div>
   );
