@@ -24,6 +24,10 @@ const useStyle = makeStyles(() => ({
   },
 }));
 
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const Carousel = () => {
   const classes = useStyle();
   const [trending, setTrending] = useState([]);
@@ -67,7 +71,7 @@ const Carousel = () => {
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
           {symbol}
-          {coin?.current_price}
+          {numberWithCommas(coin?.current_price)}
           {/* {numberWithCommas(coin?.current_price.toFixed(2)) */}
         </span>
       </Link>
