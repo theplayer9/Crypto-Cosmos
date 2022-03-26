@@ -1,4 +1,10 @@
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import {
+  Container,
+  createTheme,
+  TextField,
+  ThemeProvider,
+  Typography,
+} from "@material-ui/core";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -32,7 +38,23 @@ const CoinsTable = () => {
     },
   }));
 
-  return <ThemeProvider theme={darkTheme}></ThemeProvider>;
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <Container style={{ textAlign: "center" }}>
+        <Typography
+          variant="h3"
+          style={{ margin: 18, fontFamily: "Montserrat" }}
+        >
+          Crypto currency Prices by Market Cap
+        </Typography>
+        <TextField
+          label="Search For a Crypto Currency.."
+          variant="outlined"
+          style={{ marginBottom: 20, width: "100%" }}
+        />
+      </Container>
+    </ThemeProvider>
+  );
 };
 
 export default CoinsTable;
