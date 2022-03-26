@@ -65,14 +65,18 @@ const Carousel = () => {
         <span>
           {coin?.symbol}
           &nbsp;
-          <span>
+          <span
+            style={{
+              color: profit ? "rgb(14,203,129)" : "red",
+              fontWeight: 500,
+            }}
+          >
             {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
           {symbol}
-          {numberWithCommas(coin?.current_price)}
-          {/* {numberWithCommas(coin?.current_price.toFixed(2)) */}
+          {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </Link>
     );
