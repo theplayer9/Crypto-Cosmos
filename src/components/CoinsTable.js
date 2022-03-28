@@ -146,8 +146,7 @@ const CoinsTable = () => {
                         {symbol}
                         {numberWithCommas(row.current_price.toFixed(2))}
                       </TableCell>
-
-                      {/* <TableCell
+                      <TableCell
                         align="right"
                         style={{
                           color: profit > 0 ? "rgb(14,203,129)" : "red",
@@ -156,7 +155,7 @@ const CoinsTable = () => {
                       >
                         {profit && "+"}
                         {row.price_change_percentage_24h.toFixed(2)}%
-                      </TableCell> */}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
