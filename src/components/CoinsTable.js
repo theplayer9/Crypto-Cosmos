@@ -103,7 +103,7 @@ const CoinsTable = () => {
         <TextField
           className={classes.searchbar}
           label="Search For a Crypto Currency..."
-          variant="outlined"
+          variant="filled"
           style={{ marginBottom: 20, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
