@@ -8,12 +8,22 @@ import {
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Classnames } from "react-alice-carousel";
 import { CoinList } from "../config/Api";
 import { CryptoState } from "../CryptoContext";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyle = makeStyles(() => ({
+  searchbar: {
+    background: "white",
+  },
+}));
 
 const CoinsTable = () => {
+  const classes = useStyle();
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
 
   const { currency } = CryptoState();
 
@@ -48,9 +58,12 @@ const CoinsTable = () => {
           Crypto currency Prices by Market Cap
         </Typography>
         <TextField
-          label="Search For a Crypto Currency.."
+          className={classes.searchbar}
+          label="Search For a Crypto Currency..."
           variant="outlined"
+          tex
           style={{ marginBottom: 20, width: "100%" }}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </Container>
     </ThemeProvider>
