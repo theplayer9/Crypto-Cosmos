@@ -28,7 +28,14 @@ const useStyle = makeStyles(() => ({
     backgroundColor: "white",
     // borderRadius: "50"
   },
-  row: {},
+  row: {
+    backgroundColor: "#16171a",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "#696969",
+    },
+    fontFamily: "Montserrat",
+  },
 }));
 
 const CoinsTable = () => {
