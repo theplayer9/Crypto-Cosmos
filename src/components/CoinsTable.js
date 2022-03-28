@@ -139,6 +139,7 @@ const CoinsTable = () => {
                           >
                             {row.symbol}
                           </span>
+                          <span style={{ color: "darkgrey" }}>{row.name}</span>
                         </div>
                       </TableCell>
                     </TableRow>
