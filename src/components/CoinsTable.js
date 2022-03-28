@@ -20,6 +20,7 @@ import { CoinList } from "../config/Api";
 import { CryptoState } from "../CryptoContext";
 import { makeStyles } from "@material-ui/styles";
 import { useHistory } from "react-router-dom";
+import { numberWithCommas } from "./Banner/Carousel";
 
 const useStyle = makeStyles(() => ({
   searchbar: {
@@ -141,6 +142,10 @@ const CoinsTable = () => {
                           </span>
                           <span style={{ color: "darkgrey" }}>{row.name}</span>
                         </div>
+                      </TableCell>
+                      <TableCell align="right">
+                        {symbol}
+                        {numberWithCommas(row.current_price.toFixed(2))}
                       </TableCell>
                       <TableCell
                         align="right"
