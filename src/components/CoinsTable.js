@@ -37,6 +37,11 @@ const useStyle = makeStyles(() => ({
     },
     fontFamily: "Montserrat",
   },
+  pagination: {
+    "& .MuiPagination-ui": {
+      color: "gold",
+    },
+  },
 }));
 
 const CoinsTable = () => {
@@ -191,8 +196,12 @@ const CoinsTable = () => {
             display: "flex",
             justifyContent: "center",
           }}
+          classes={{ ul: classes.pagination }}
           count={(handleSearch()?.length / 10).toFixed(0)}
-          color="secondary"
+          onChange={(e, currentpage) => {
+            setPage(currentpage);
+          }}
+          // color="secondary"
         />
       </Container>
     </ThemeProvider>
