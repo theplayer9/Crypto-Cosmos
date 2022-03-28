@@ -200,6 +200,7 @@ const CoinsTable = () => {
           count={(handleSearch()?.length / 10).toFixed(0)}
           onChange={(e, currentpage) => {
             setPage(currentpage);
+            window.scroll(0, 450);
           }}
           // color="secondary"
         />
