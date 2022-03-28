@@ -15,7 +15,9 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyle = makeStyles(() => ({
   searchbar: {
-    background: "white",
+    // border: "1px solid grey",
+    backgroundColor: "white",
+    // borderRadius: "50"
   },
 }));
 
