@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Classnames } from "react-alice-carousel";
 import { CoinList } from "../config/Api";
@@ -37,8 +37,7 @@ const CoinsTable = () => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const history = useHistory();
-
-  const { currency } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
   const fetchCoins = async (cry) => {
     setLoading(true);
@@ -47,7 +46,7 @@ const CoinsTable = () => {
     setLoading(false);
   };
 
-  console.log("coinstable data:", coins);
+  //   console.log("coinstable data:", coins);
   useEffect(() => {
     fetchCoins(currency);
   }, [currency]);
@@ -143,11 +142,12 @@ const CoinsTable = () => {
                           <span style={{ color: "darkgrey" }}>{row.name}</span>
                         </div>
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" style={{ color: "white" }}>
                         {symbol}
                         {numberWithCommas(row.current_price.toFixed(2))}
                       </TableCell>
-                      <TableCell
+
+                      {/* <TableCell
                         align="right"
                         style={{
                           color: profit > 0 ? "rgb(14,203,129)" : "red",
@@ -156,7 +156,7 @@ const CoinsTable = () => {
                       >
                         {profit && "+"}
                         {row.price_change_percentage_24h.toFixed(2)}%
-                      </TableCell>
+                      </TableCell> */}
                     </TableRow>
                   );
                 })}
