@@ -156,6 +156,11 @@ const CoinsTable = () => {
                         {profit && "+"}
                         {row.price_change_percentage_24h.toFixed(2)}%
                       </TableCell>
+                      <TableCell align="right" style={{ color: "white" }}>
+                        {symbol}
+                        {row.market_cap.toString().slice(0, -6)}M
+                        {/* .slice() is to remove the last 6 digits. Without using it the number commint form the api will be too long to display. */}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
