@@ -198,7 +198,8 @@ const CoinsTable = () => {
           }}
           classes={{ ul: classes.pagination }}
           count={(handleSearch()?.length / 10).toFixed(0)}
-          onChange={(e, currentpage) => {
+          onChange={(_, currentpage) => {
+            //we can use event/e in place of underscore(_)
             setPage(currentpage);
             window.scroll(0, 450);
           }}
