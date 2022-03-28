@@ -19,6 +19,7 @@ import { Classnames } from "react-alice-carousel";
 import { CoinList } from "../config/Api";
 import { CryptoState } from "../CryptoContext";
 import { makeStyles } from "@material-ui/styles";
+import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles(() => ({
   searchbar: {
@@ -26,6 +27,7 @@ const useStyle = makeStyles(() => ({
     backgroundColor: "white",
     // borderRadius: "50"
   },
+  row: {},
 }));
 
 const CoinsTable = () => {
@@ -33,6 +35,7 @@ const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const history = useHistory();
 
   const { currency } = CryptoState();
 
@@ -108,7 +111,24 @@ const CoinsTable = () => {
                   )}
                 </TableRow>
               </TableHead>
-              <TableBody>{handleSearch().map()}</TableBody>
+              <TableBody>
+                {handleSearch().map((row) => {
+                  const profit = row.price_change_percentage_24h > 0;
+                  return (
+                    <TableRow
+                      onClick={() => history.push(`/coins/${row.id}`)}
+                      className={classes.row}
+                      key={row.name}
+                    >
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        style={{ display: "flex", gap: 15, color: "white" }}
+                      ></TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
             </Table>
           )}
         </TableContainer>
