@@ -124,7 +124,14 @@ const CoinsTable = () => {
                         component="th"
                         scope="row"
                         style={{ display: "flex", gap: 15, color: "white" }}
-                      ></TableCell>
+                      >
+                        <img
+                          src={row?.image}
+                          alt={row.name}
+                          height="50"
+                          style={{ marginBottom: 10 }}
+                        />
+                      </TableCell>
                     </TableRow>
                   );
                 })}
