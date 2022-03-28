@@ -3,6 +3,7 @@ import {
   createTheme,
   LinearProgress,
   Table,
+  TableBody,
   TableCell,
   TableContainer,
   TableHead,
@@ -56,6 +57,17 @@ const CoinsTable = () => {
     },
   }));
 
+  const handleSearch = () => {
+    return coins.filter(
+      (coin) =>
+        coin.name.toLowerCase().includes(search) ||
+        coin.symbol.toLowerCase().includes(search)
+    );
+  };
+
+  //   console.log(handleSearch)
+  //   console.log(coins)
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
@@ -69,7 +81,6 @@ const CoinsTable = () => {
           className={classes.searchbar}
           label="Search For a Crypto Currency..."
           variant="outlined"
-          tex
           style={{ marginBottom: 20, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -89,6 +100,7 @@ const CoinsTable = () => {
                           fontFamily: "Montserrat",
                         }}
                         key={eren}
+                        align={eren == "Coin" ? "" : "right"}
                       >
                         {eren}
                       </TableCell>
@@ -96,6 +108,7 @@ const CoinsTable = () => {
                   )}
                 </TableRow>
               </TableHead>
+              <TableBody>{handleSearch().map()}</TableBody>
             </Table>
           )}
         </TableContainer>
