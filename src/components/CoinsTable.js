@@ -38,9 +38,15 @@ const useStyle = makeStyles(() => ({
     fontFamily: "Montserrat",
   },
   pagination: {
-    "& .MuiPagination-ui": {
+    "& .MuiPaginationItem-page": {
       color: "gold",
     },
+    "& .MuiPaginationItem-ellipsis": {
+      color: "gold",
+    },
+  },
+  ul: {
+    backgroundColor: "red",
   },
 }));
 
@@ -196,7 +202,7 @@ const CoinsTable = () => {
             display: "flex",
             justifyContent: "center",
           }}
-          classes={{ ul: classes.pagination }}
+          classes={{ root: classes.pagination }}
           count={(handleSearch()?.length / 10).toFixed(0)}
           onChange={(_, currentpage) => {
             //we can use event/e in place of underscore(_)
