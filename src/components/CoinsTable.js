@@ -80,18 +80,20 @@ const CoinsTable = () => {
             <Table>
               <TableHead style={{ backgroundColor: "#EEBC1D" }}>
                 <TableRow>
-                  <TableCell> bsdk </TableCell>
-                  <TableCell> madarchod </TableCell>
-                  <TableCell> bhen ke lode </TableCell>
-                  <TableCell> gandu </TableCell>
-                  <TableCell> tatto ke sodagar </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell> bsdk </TableCell>
-                  <TableCell> madarchod </TableCell>
-                  <TableCell> bhen ke lode </TableCell>
-                  <TableCell> gandu </TableCell>
-                  <TableCell> tatto ke sodagar </TableCell>
+                  {["Coin", "Price", "24hr Change", "Market Cap"].map(
+                    (eren) => (
+                      <TableCell
+                        style={{
+                          color: "black",
+                          fontWeight: "700",
+                          fontFamily: "Montserrat",
+                        }}
+                        key={eren}
+                      >
+                        {eren}
+                      </TableCell>
+                    )
+                  )}
                 </TableRow>
               </TableHead>
             </Table>
