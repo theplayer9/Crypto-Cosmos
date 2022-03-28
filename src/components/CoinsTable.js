@@ -1,7 +1,12 @@
 import {
   Container,
   createTheme,
+  LinearProgress,
+  Table,
+  TableCell,
   TableContainer,
+  TableHead,
+  TableRow,
   TextField,
   ThemeProvider,
   Typography,
@@ -68,7 +73,30 @@ const CoinsTable = () => {
           style={{ marginBottom: 20, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <TableContainer></TableContainer>
+        <TableContainer>
+          {loading ? (
+            <LinearProgress style={{ backgroundColor: "gold" }} />
+          ) : (
+            <Table>
+              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+                <TableRow>
+                  <TableCell> bsdk </TableCell>
+                  <TableCell> madarchod </TableCell>
+                  <TableCell> bhen ke lode </TableCell>
+                  <TableCell> gandu </TableCell>
+                  <TableCell> tatto ke sodagar </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell> bsdk </TableCell>
+                  <TableCell> madarchod </TableCell>
+                  <TableCell> bhen ke lode </TableCell>
+                  <TableCell> gandu </TableCell>
+                  <TableCell> tatto ke sodagar </TableCell>
+                </TableRow>
+              </TableHead>
+            </Table>
+          )}
+        </TableContainer>
       </Container>
     </ThemeProvider>
   );
