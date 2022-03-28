@@ -68,7 +68,7 @@ const CoinsTable = () => {
     );
   };
 
-  //   console.log(handleSearch)
+  console.log("handled data is :", handleSearch());
   //   console.log(coins)
 
   return (
@@ -141,6 +141,16 @@ const CoinsTable = () => {
                           </span>
                           <span style={{ color: "darkgrey" }}>{row.name}</span>
                         </div>
+                      </TableCell>
+                      <TableCell
+                        align="right"
+                        style={{
+                          color: profit > 0 ? "rgb(14,203,129)" : "red",
+                          fontWeight: 500,
+                        }}
+                      >
+                        {profit && "+"}
+                        {row.price_change_percentage_24h.toFixed(2)}%
                       </TableCell>
                     </TableRow>
                   );
