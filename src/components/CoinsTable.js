@@ -1,6 +1,7 @@
 import {
   Container,
   createTheme,
+  TableContainer,
   TextField,
   ThemeProvider,
   Typography,
@@ -67,6 +68,7 @@ const CoinsTable = () => {
           style={{ marginBottom: 20, width: "100%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
+        <TableContainer></TableContainer>
       </Container>
     </ThemeProvider>
   );
