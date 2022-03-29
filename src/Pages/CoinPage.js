@@ -46,7 +46,7 @@ const CoinPage = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.sidebar}>fsafdsd{/* this is the sidebar  */}</div>
+      <div className={classes.sidebar}>naughty{/* this is the sidebar  */}</div>
       {/* this is the chart */}
       <Coininfo coin={coin}></Coininfo>
     </div>
