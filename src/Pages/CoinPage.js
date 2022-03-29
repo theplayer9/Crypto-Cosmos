@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { makeStyles, ThemeProvider } from "@material-ui/core";
 import Coininfo from "../components/Coininfo";
 
-const useStyle = makeStyles(() => ({
+const useStyle = makeStyles((theme) => ({
   container: {
     display: "flex",
     [theme.breakpoints.down("md")]: {
