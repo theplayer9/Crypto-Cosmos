@@ -62,6 +62,12 @@ const CoinPage = () => {
         <Typography variant="h3" className={classes.heading}>
           {coin?.name}
         </Typography>
+        <Typography>
+          <div
+            dangerouslySetInnerHTML={{ __html: coin?.description?.en }}
+          ></div>
+          {/* {coin?.description.en.split( ". ")[0]} */}
+        </Typography>
       </div>
       {/* this is the chart */}
       <Coininfo coin={coin}></Coininfo>
