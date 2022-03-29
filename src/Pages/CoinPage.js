@@ -31,6 +31,14 @@ const useStyle = makeStyles((theme) => ({
     marginBottom: 20,
     fontFamily: "Monsterrat",
   },
+  description: {
+    width: "100%",
+    fontFamily: "Monsterrat",
+    padding: 25,
+    paddingBottom: 15,
+    paddingTop: 0,
+    textAlign: "justify",
+  },
 }));
 
 const CoinPage = () => {
@@ -62,7 +70,7 @@ const CoinPage = () => {
         <Typography variant="h3" className={classes.heading}>
           {coin?.name}
         </Typography>
-        <Typography>
+        <Typography variant="subtitle1" className={classes.description}>
           <div
             dangerouslySetInnerHTML={{
               __html: coin?.description?.en.split(". ")[0],
@@ -70,6 +78,9 @@ const CoinPage = () => {
           ></div>
           {/* {coin?.description.en.split( " .")[0]} */}
         </Typography>
+        <div className={classes.marketData}>
+          <span></span>
+        </div>
       </div>
       {/* this is the chart */}
       <Coininfo coin={coin}></Coininfo>
