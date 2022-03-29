@@ -26,6 +26,11 @@ const useStyle = makeStyles((theme) => ({
     marginTop: 80,
     borderRight: "2px solid grey",
   },
+  heading: {
+    fontWeight: "bold",
+    marginBottom: 20,
+    fontFamily: "Monsterrat",
+  },
 }));
 
 const CoinPage = () => {
