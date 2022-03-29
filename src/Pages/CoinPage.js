@@ -64,9 +64,11 @@ const CoinPage = () => {
         </Typography>
         <Typography>
           <div
-            dangerouslySetInnerHTML={{ __html: coin?.description?.en }}
+            dangerouslySetInnerHTML={{
+              __html: coin?.description?.en.split(". ")[0],
+            }}
           ></div>
-          {/* {coin?.description.en.split( ". ")[0]} */}
+          {/* {coin?.description.en.split( " .")[0]} */}
         </Typography>
       </div>
       {/* this is the chart */}
