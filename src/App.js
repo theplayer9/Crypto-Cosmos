@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 import CoinPage from "./Pages/CoinPage";
-import HomePage from "./Pages/Homepage"
+import HomePage from "./Pages/Homepage";
 import useStyle from "./style";
 import Particles from "react-tsparticles";
 // useStyle is a hook provided by makeStyle from material-Ui
@@ -94,7 +94,7 @@ const App = () => {
               value: 0.5,
             },
             shape: {
-              type: "circle"
+              type: "circle",
               // type: "image",
               // image: {
               //   src: "https://png.pngtree.com/element_our/20190601/ourmid/pngtree-yellow-bitcoin-free-map-image_1369249.jpg",
@@ -108,8 +108,8 @@ const App = () => {
           detectRetina: true,
         }}
       />
+      <Header />
       <div className={classes.App}>
-        <Header />
         <Route path="/" component={HomePage} exact />
         <Route path="/coins/:id" component={CoinPage} />
       </div>
