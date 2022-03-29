@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { SingleCoin } from "../config/Api";
 import { CryptoState } from "../CryptoContext";
 import { useState, useEffect } from "react";
-import { makeStyles, ThemeProvider } from "@material-ui/core";
+import { makeStyles, ThemeProvider, Typography } from "@material-ui/core";
 import Coininfo from "../components/Coininfo";
 
 const useStyle = makeStyles((theme) => ({
@@ -46,7 +46,18 @@ const CoinPage = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.sidebar}>naughty{/* this is the sidebar  */}</div>
+      <div className={classes.sidebar}>
+        {/* this is the sidebar  */}
+        <img
+          src={coin?.image?.large}
+          alt={coin?.name}
+          height="200"
+          style={{ margineBottom: 20 }}
+        />
+        <Typography variant="h3" className={classes.heading}>
+          {coin?.name}
+        </Typography>
+      </div>
       {/* this is the chart */}
       <Coininfo coin={coin}></Coininfo>
     </div>
