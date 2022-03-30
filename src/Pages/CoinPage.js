@@ -4,7 +4,12 @@ import { useParams } from "react-router-dom";
 import { SingleCoin } from "../config/Api";
 import { CryptoState } from "../CryptoContext";
 import { useState, useEffect } from "react";
-import { makeStyles, ThemeProvider, Typography } from "@material-ui/core";
+import {
+  LinearProgress,
+  makeStyles,
+  ThemeProvider,
+  Typography,
+} from "@material-ui/core";
 import Coininfo from "../components/Coininfo";
 import { numberWithCommas } from "../components/Banner/Carousel";
 
@@ -58,6 +63,8 @@ const CoinPage = () => {
     fetchCoin(id);
   }, []);
 
+  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
+
   return (
     <div className={classes.container}>
       <div className={classes.sidebar}>
@@ -96,7 +103,10 @@ const CoinPage = () => {
             &nbsp; &nbsp;
             <Typography variant="h5" style={{ fonstFamily: "Monsterrat" }}>
               {symbol}
-              {/* {numberWithCommas(coin?.market_data.current_price[])} */}
+              {numberWithCommas(
+                coin?.market_data?.current_price[currency.toLowerCase()]
+              )}
+              {/* -------------doubt----------- */}
             </Typography>
           </span>
           <span style={{ display: "flex" }}>
