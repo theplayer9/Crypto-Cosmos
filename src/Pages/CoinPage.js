@@ -64,6 +64,7 @@ const CoinPage = () => {
   }, []);
 
   if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
+  // On line 101 i have usesd numberWithCommas function. Here coins is not populated yet. So above the return statement I have passes an If statement , so that if the coin is not populated yet , it will show a LinearProcessor
 
   return (
     <div className={classes.container}>
@@ -111,11 +112,16 @@ const CoinPage = () => {
           </span>
           <span style={{ display: "flex" }}>
             <Typography className={classes.heading} variant="h5">
-              Rank :
+              Market Cap :
             </Typography>
             &nbsp; &nbsp;
             <Typography variant="h5" style={{ fonstFamily: "Monsterrat" }}>
-              {coin?.market_cap_rank}
+              {symbol}
+              {numberWithCommas(
+                coin?.market_data.market_cap[currency.toLowerCase()]
+                  .toString()
+                  .slice(0, -6)
+              )}
             </Typography>
           </span>
         </div>
