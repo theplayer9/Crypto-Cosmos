@@ -6,6 +6,7 @@ import { CryptoState } from "../CryptoContext";
 import { useState, useEffect } from "react";
 import { makeStyles, ThemeProvider, Typography } from "@material-ui/core";
 import Coininfo from "../components/Coininfo";
+import { numberWithCommas } from "../components/Banner/Carousel";
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -79,7 +80,34 @@ const CoinPage = () => {
           {/* {coin?.description.en.split( " .")[0]} */}
         </Typography>
         <div className={classes.marketData}>
-          <span></span>
+          <span style={{ display: "flex" }}>
+            <Typography className={classes.heading} variant="h5">
+              Rank :
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography variant="h5" style={{ fonstFamily: "Monsterrat" }}>
+              {coin?.market_cap_rank}
+            </Typography>
+          </span>
+          <span style={{ display: "flex" }}>
+            <Typography className={classes.heading} variant="h5">
+              Current Price :
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography variant="h5" style={{ fonstFamily: "Monsterrat" }}>
+              {symbol}
+              {/* {numberWithCommas(coin?.market_data.current_price[])} */}
+            </Typography>
+          </span>
+          <span style={{ display: "flex" }}>
+            <Typography className={classes.heading} variant="h5">
+              Rank :
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography variant="h5" style={{ fonstFamily: "Monsterrat" }}>
+              {coin?.market_cap_rank}
+            </Typography>
+          </span>
         </div>
       </div>
       {/* this is the chart */}
