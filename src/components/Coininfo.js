@@ -64,7 +64,18 @@ const Coininfo = ({ coin }) => {
           />
         ) : (
           <>
-            <Line />
+            <Line
+              data={{
+                labels: historicalData.map((coin) => {
+                  let date = new Date(coin[0]);
+                  let time =
+                    date.getHours() > 12
+                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                      : `${date.getHours()}:${date.getMinutes()} AM`;
+                  return days === 1 ? time : date.toLocaleDateString();
+                }),
+              }}
+            />
           </>
         )}
       </div>
