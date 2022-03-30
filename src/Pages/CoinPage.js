@@ -45,6 +45,26 @@ const useStyle = makeStyles((theme) => ({
     paddingTop: 0,
     textAlign: "justify",
   },
+  marketData: {
+    alignSelf: "start",
+    width: "100%",
+    padding: 25,
+    paddingTop: 10,
+
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
+      justifyContent: "space-around",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      alignItems: "start",
+    },
+  },
 }));
 
 const CoinPage = () => {
