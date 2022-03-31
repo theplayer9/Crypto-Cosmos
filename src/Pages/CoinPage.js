@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 
 import { numberWithCommas } from "../components/Banner/Carousel";
-import CoinInfo from "../components/CoinInfo";
+import CoinInfo from "../components/Coininfo";
 
 const useStyle = makeStyles((theme) => ({
   container: {
