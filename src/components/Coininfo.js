@@ -29,7 +29,8 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const Coininfo = ({ coin }) => {
+const CoinInfo = ({ coin }) => {
+    console.log( "coin is here:", coin)
   const [historicalData, setHistoricalData] = useState();
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
@@ -37,7 +38,10 @@ const Coininfo = ({ coin }) => {
 
   const fetchHistoricalData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
-    setHistoricalData(data.price);
+    console.log( "thadsh", data)
+    setHistoricalData(data.prices);
+  console.log("historical data in :", historicalData)
+
   };
 
   useEffect(() => {
@@ -52,6 +56,8 @@ const Coininfo = ({ coin }) => {
       type: "dark",
     },
   });
+   
+  console.log("historical data out :", historicalData)
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -74,6 +80,14 @@ const Coininfo = ({ coin }) => {
                       : `${date.getHours()}:${date.getMinutes()} AM`;
                   return days === 1 ? time : date.toLocaleDateString();
                 }),
+
+                datasets: [
+                  {
+                    data: historicalData.map((coin) => coin[1]),
+                    label: `Price ( Past ${days} Days ) in ${currency}`,
+                    borderColor: "#EEBC1D",
+                  },
+                ],
               }}
             />
           </>
@@ -83,4 +97,4 @@ const Coininfo = ({ coin }) => {
   );
 };
 
-export default Coininfo;
+export default CoinInfo;
