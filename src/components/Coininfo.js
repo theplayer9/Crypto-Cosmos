@@ -30,19 +30,22 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 const CoinInfo = ({ coin }) => {
-    console.log( "coin is here:", coin)
-  const [historicalData, setHistoricalData] = useState();
+  console.log("coin is here:", coin);
+  const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
   const classes = useStyle();
+  const [flag,setflag] = useState(false);
 
   const fetchHistoricalData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
-    console.log( "thadsh", data)
-    setHistoricalData(data.prices);
-  console.log("historical data in :", historicalData)
-
+    console.log("thadsh", data);
+    setflag(true);
+    setHistoricData(data.prices);
+    console.log("historic data in :", historicData);
   };
+  console.log("historic data out :", historicData);
+
 
   useEffect(() => {
     fetchHistoricalData();
@@ -56,12 +59,44 @@ const CoinInfo = ({ coin }) => {
       type: "dark",
     },
   });
-   
-  console.log("historical data out :", historicalData)
+  // const chartLabel = historicData.map((coin) => {
+  //   let date = new Date(coin[0]);
+  //   date.getHours() > 12
+  //     ? `${date.getHours() - 12} : ${date.getMinutes()}PM`
+  //     : `${date.getHours()} : ${date.getMinutes()}AM`
+  // })
+
+  
 
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>
+        {!historicData | flag===false ?  (
+          <CircularProgress
+            style={{ color: "gold" }}
+            size={250}
+            thickness={1}
+          />
+        ) : (
+          <>
+            <Line
+              data={{
+                labels: historicData?.map((coin) => {
+                  let date = new Date(coin[0]);
+                  let time =
+                    date.getHours() > 12
+                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                      : `${date.getHours()}:${date.getMinutes()} AM`;
+                  return days === 1 ? time : date.toLocaleDateString();
+                }),
+
+              }}
+            />
+          </>
+        )}
+      </div>
+
+      {/* <div className={classes.container}>
         {!historicalData ? (
           <CircularProgress
             style={{ color: "gold" }}
@@ -92,7 +127,7 @@ const CoinInfo = ({ coin }) => {
             />
           </>
         )}
-      </div>
+      </div> */}
     </ThemeProvider>
   );
 };
