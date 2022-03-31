@@ -13,7 +13,6 @@ import {
 
 import { numberWithCommas } from "../components/Banner/Carousel";
 import CoinInfo from "../components/CoinInfo";
-import CoinChart from "../components/CoinChart";
 
 const useStyle = makeStyles((theme) => ({
   container: {
