@@ -10,8 +10,9 @@ import {
   ThemeProvider,
   Typography,
 } from "@material-ui/core";
-import Coininfo from "../components/Coininfo";
+
 import { numberWithCommas } from "../components/Banner/Carousel";
+import CoinInfo from "../components/CoinInfo";
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -77,7 +78,7 @@ const CoinPage = () => {
     const { data } = await axios.get(SingleCoin(naughty));
     setCoin(data);
   };
-  console.log("coin data:", coin);
+  console.log("coin data coin page:", coin);
 
   useEffect(() => {
     fetchCoin(id);
@@ -147,7 +148,8 @@ const CoinPage = () => {
         </div>
       </div>
       {/* this is the chart */}
-      <Coininfo coin={coin}></Coininfo>
+      {/* <CoinInfo coin={coin}></CoinInfo> */}
+      <CoinInfo coin={coin} />
     </div>
   );
 };
