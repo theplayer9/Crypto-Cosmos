@@ -98,7 +98,7 @@ git remote -v
   git add .
 ```
 
-**12.** Commit your changes. While contributing to this project, you can use #signing-off-on-commits for each commit you make.
+**12.** Commit your changes. While contributing to this project, you can use signing-off-on-commits for each commit you make.
 
 ```
   git commit --signoff -m "<commit subject>"
