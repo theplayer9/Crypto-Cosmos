@@ -65,3 +65,29 @@ git remote add upstream https://github.com/theplayer9/Crypto-Cosmos.git
 ```
 git remote -v
 ```
+
+**6.** Always take a pull from the upstream repository to your master branch to keep it at par with the main project (updated repository).
+
+```
+  git pull upstream master
+```
+
+**7.** Create a new branch.
+
+```
+  git checkout -b <your_branch_name>
+```
+
+**8.** Install the dependencies for running the site.
+
+```
+  npm i
+```
+
+**9.** Make the desired changes.
+
+**10.** Run the site locally to preview changes.
+
+```
+  npm start
+```
