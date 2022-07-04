@@ -35,3 +35,33 @@ Make sure you have the following prerequisites installed on your operating syste
   ```
   npm -v
   ```
+
+## Set up your Local Development Environment
+
+Follow the following instructions to start contributing.
+
+**1.** Fork [this](https://github.com/theplayer9/Crypto-Cosmos) repository.
+
+**2.** Clone your forked copy of the project.
+
+```
+git clone https://github.com/<your-github-username>/Crypto-Cosmos.git
+```
+
+**3.** Navigate to the project directory.
+
+```
+cd Crypto-Cosmos
+```
+
+**4.** Add a reference(remote) to the original repository.
+
+```
+git remote add upstream https://github.com/theplayer9/Crypto-Cosmos.git
+```
+
+**5.** Check the remotes for this repository.
+
+```
+git remote -v
+```
