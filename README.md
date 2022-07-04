@@ -1,5 +1,9 @@
-# Getting Started with Create React App
+![Crypto Cosmos](public/Landingpage.png)
 
+<p align="center">
+<img src="https://img.shields.io/badge/Author-theplayer9-yellow" />
+</p>
+# Getting Started with Create React App
 This project was bootstrapped with [Crypto Cosmos](public/Landingpage.png).
 
 ## Available Scripts
