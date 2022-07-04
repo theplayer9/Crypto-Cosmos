@@ -91,3 +91,45 @@ git remote -v
 ```
   npm start
 ```
+
+**11.** Track your changes.
+
+```
+  git add .
+```
+
+**12.** Commit your changes. While contributing to this project, you can use #signing-off-on-commits for each commit you make.
+
+```
+  git commit --signoff -m "<commit subject>"
+```
+
+or you could go with the shorter format for the same, as shown below.
+
+```
+  git commit -s -m "<commit subject>"
+```
+
+**13.** While you are working on your branch, other developers may update the `master` branch with their branch. This action means your branch is now out of date with the `master` branch and missing content. So to fetch the new changes, follow along:
+
+```
+  git checkout master
+  git fetch origin master
+  git merge upstream/master
+  git push origin
+```
+
+Now you need to merge the `master` branch into your branch. This can be done in the following way:
+
+```
+  git checkout <your_branch_name>
+  git merge master
+```
+
+**14.** Push the committed changes in your feature branch to your remote repo.
+
+```
+  git push -u origin <your_branch_name>
+```
+
+**15.** Once you’ve committed and pushed all of your changes to GitHub, go to the page for your fork on GitHub, select your development branch, and click the pull request button. Please ensure that you compare your feature branch to the desired branch of the repo you are supposed to make a PR to. If you need to make any adjustments to your pull request, just push the updates to GitHub. Your pull request will automatically track the changes in your development branch and update it.
