@@ -10,7 +10,9 @@
 
 Crypto Cosmos is a web-based application that displays the latest updates about the top 100 cryptocurrencies like its current price, the percentage change in the last 24 hours, profit, etc. It also shows the behavior of any crypto in chart form, to make it more interactive. One can also search for any crypto and get information about a particular currency. Nice interactive graphs are there which will show you the growth/fall of the currency.
 
-It is built using **React JS**, JavaScript, Material UI, and Chart JS with full responsive functionality. I have used Context API to manage the state of our app and Coin Gecko API to fetch all the information regarding the currencies. I also used Particle-js to give it a unique UI design.
+## 🛠️ Tech used
+
+It is built using **React JS**, **JavaScript**, **Material UI**, and **Chart JS** with full responsive functionality. I have used _Context API_ to manage the state of our app and **Coin Gecko API** to fetch all the information regarding the currencies. I also used **Particle-js** to give it a unique UI design.
 
 ## 💡 Why did I build this?
 
