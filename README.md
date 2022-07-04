@@ -133,3 +133,15 @@ Now you need to merge the `master` branch into your branch. This can be done in 
 ```
 
 **15.** Once you’ve committed and pushed all of your changes to GitHub, go to the page for your fork on GitHub, select your development branch, and click the pull request button. Please ensure that you compare your feature branch to the desired branch of the repo you are supposed to make a PR to. If you need to make any adjustments to your pull request, just push the updates to GitHub. Your pull request will automatically track the changes in your development branch and update it.
+
+## 🥁 Features
+
+- Displays the latest updates about the top 100 cryptocurrencies like its market cap, current price, the percentage change in the last 24 hours, profit, etc.
+- Shows the behavior of any crypto in chart form with all the stats alongside.
+- May choose any among the two currencies i.e INR and USD.
+- Can track the growth/fall of any crypto upto last 1 year and display it.
+
+## Scope Of Impovement
+
+- Authentication
+- Personalized crypto cart for every user.
