@@ -54,7 +54,7 @@ const CoinsTable = () => {
   const classes = useStyle();
   const [search, setSearch] = useState("");
   const history = useHistory();
-  const { currency, symbol, coins, loading } = CryptoState();
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
   const [page, setPage] = useState(1);
 
   //   console.log("coinstable data:", coins);
