@@ -53,7 +53,7 @@ const useStyle = makeStyles(() => ({
 const CoinsTable = () => {
   const classes = useStyle();
   const [search, setSearch] = useState("");
-  const history = useHistory();
+  const history = useHistory(); // Accessing the history instance created by React
   const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
   const [page, setPage] = useState(1);
 
