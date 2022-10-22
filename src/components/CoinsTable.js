@@ -52,19 +52,10 @@ const useStyle = makeStyles(() => ({
 
 const CoinsTable = () => {
   const classes = useStyle();
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
-  const history = useHistory();
-  const { currency, symbol } = CryptoState();
+  const history = useHistory(); // Accessing the history instance created by React
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
   const [page, setPage] = useState(1);
-
-  const fetchCoins = async (cry) => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(cry));
-    setCoins(data);
-    setLoading(false);
-  };
 
   //   console.log("coinstable data:", coins);
   useEffect(() => {
