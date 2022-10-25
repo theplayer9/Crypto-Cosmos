@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -32,9 +33,17 @@ export default function AuthModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        react-transition-group
-      </button>
+      <Button
+        variant="contained"
+        style={{
+          width: 85,
+          height: 40,
+          marginLeft: 15,
+          backgroundColor: "#EEBC1D",
+        }}
+      >
+        LOGIN
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
