@@ -36,6 +36,7 @@ export default function AuthModal() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    // console.log(newValue , "this is newvalue")
     setValue(newValue);
   };
 
@@ -81,8 +82,8 @@ export default function AuthModal() {
                 <Tab lable="Sign Up" />
               </Tabs>
             </AppBar>
-            {value === 0 && <Login />}
-            {value === 1 && <Signup />}
+            {value === 0 && <Login handleClose={handleClose} />}
+            {value === 1 && <Signup handleClose={handleClose} />}
           </div>
         </Fade>
       </Modal>
