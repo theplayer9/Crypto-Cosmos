@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     width: 400,
   },
+  tabs: {
+    color: "red",
+  },
 }));
 
 export default function AuthModal() {
@@ -70,16 +73,19 @@ export default function AuthModal() {
           <div className={classes.paper}>
             <AppBar
               position="static"
-              style={{ backgroundColor: "transparent", color: "white" }}
+              style={{ backgroundColor: "transparent" }}
             >
               <Tabs
                 value={value}
                 onChange={handleChange}
                 variant="fullWidth"
-                style={{ borderRadius: 10 }}
+                // style={{ borderRadius: 10, color: "EEBC1D"}}
+                classes={{
+                  classes: classes.tabs,
+                }}
               >
-                <Tab lable="Login" />
-                <Tab lable="Sign Up" />
+                <Tab lable="Login"> Login</Tab>
+                <Tab lable="Sign Up"> Signup</Tab>
               </Tabs>
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
