@@ -84,8 +84,8 @@ export default function AuthModal() {
                   classes: classes.tabs,
                 }}
               >
-                <Tab lable="Login"> Login</Tab>
-                <Tab lable="Sign Up"> Signup</Tab>
+                <Tab lable="Login" />
+                <Tab lable="Sign Up" />
               </Tabs>
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
