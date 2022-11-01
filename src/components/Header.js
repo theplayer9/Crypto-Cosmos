@@ -30,7 +30,7 @@ const useStyle = makeStyles(() => ({
 const Header = () => {
   const classes = useStyle();
   const history = useHistory();
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
   console.log(currency);
   const darkTheme = createTheme(() => ({
     palette: {
@@ -68,7 +68,7 @@ const Header = () => {
               <MenuItem value="USD">USD</MenuItem>
               <MenuItem value="INR">INR</MenuItem>
             </Select>
-            <AuthModal />
+            {user ? "logout" : <AuthModal />}
           </Toolbar>
         </Container>
       </Appbar>
