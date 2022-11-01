@@ -31,7 +31,7 @@ const Header = () => {
   const classes = useStyle();
   const history = useHistory();
   const { currency, setCurrency, user } = CryptoState();
-  console.log(currency);
+  // console.log(currency);
   const darkTheme = createTheme(() => ({
     palette: {
       primary: {
