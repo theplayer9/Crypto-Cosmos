@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { AppBar, Button, Tab, Tabs } from "@material-ui/core";
+import { AppBar, Box, Button, Tab, Tabs } from "@material-ui/core";
 import Login from "./Login";
 import Signup from "./Signup";
 
@@ -84,6 +84,9 @@ export default function AuthModal() {
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
             {value === 1 && <Signup handleClose={handleClose} />}
+            <Box className={classes.google}>
+              <span> Google </span>
+            </Box>
           </div>
         </Fade>
       </Modal>
