@@ -71,6 +71,7 @@ export default function UserSidebar() {
     ) {
       return;
     }
+    console.log(user, "This is the user data in userSidebar");
 
     setState({ ...state, [anchor]: open });
   };
