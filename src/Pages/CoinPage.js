@@ -5,6 +5,7 @@ import { SingleCoin } from "../config/Api";
 import { CryptoState } from "../CryptoContext";
 import { useState, useEffect } from "react";
 import {
+  Button,
   LinearProgress,
   makeStyles,
   ThemeProvider,
@@ -71,7 +72,7 @@ const useStyle = makeStyles((theme) => ({
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, user } = CryptoState();
   const classes = useStyle();
 
   const fetchCoin = async (naughty) => {
@@ -145,6 +146,18 @@ const CoinPage = () => {
               )}
             </Typography>
           </span>
+
+          {user && (
+            <Button
+              style={{
+                width: "100%",
+                height: 40,
+                backgroundColor: "#EEBC1D",
+              }}
+            >
+              Add to Watchlist
+            </Button>
+          )}
         </div>
       </div>
       {/* this is the chart */}
