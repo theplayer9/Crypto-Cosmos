@@ -14,6 +14,8 @@ import {
 
 import { numberWithCommas } from "../components/Banner/Carousel";
 import CoinInfo from "../components/Coininfo";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -72,18 +74,41 @@ const useStyle = makeStyles((theme) => ({
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
-  const { currency, symbol, user } = CryptoState();
+  const { currency, symbol, user, watchlist, setAlert } = CryptoState();
   const classes = useStyle();
 
-  const fetchCoin = async (naughty) => {
-    const { data } = await axios.get(SingleCoin(naughty));
+  const fetchCoin = async () => {
+    const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
   };
-  console.log("coin data coin page:", coin);
+  // console.log("coin data coin page:", coin);
 
   useEffect(() => {
     fetchCoin(id);
   }, []);
+
+  const inWatchlist = watchlist.includes(coin?.id);
+
+  const addToWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+
+    try {
+      await setDoc(coinRef, {
+        coins: watchlist ? [...watchlist, coin?.id] : [coin?.id],
+      });
+      setAlert({
+        open: true,
+        message: `${coin.name} Added to the watchlist!`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
+  };
 
   if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
   // On line 101 i have usesd numberWithCommas function. Here coins is not populated yet. So above the return statement I have passes an If statement , so that if the coin is not populated yet , it will show a LinearProcessor
@@ -154,8 +179,9 @@ const CoinPage = () => {
                 height: 40,
                 backgroundColor: "#EEBC1D",
               }}
+              onClick={addToWatchlist}
             >
-              Add to Watchlist
+              {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
             </Button>
           )}
         </div>
