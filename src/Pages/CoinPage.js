@@ -55,16 +55,25 @@ const useStyle = makeStyles((theme) => ({
     padding: 25,
     paddingTop: 10,
 
-    [theme.breakpoints.down("md")]: {
-      display: "flex",
-      justifyContent: "space-around",
-    },
+    // [theme.breakpoints.down("md")]: {
+    //   display: "flex",
+    //   justifyContent: "space-around",
+    // },
 
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       alignItems: "center",
     },
 
+    // [theme.breakpoints.down("xs")]: {
+    //   alignItems: "start",
+    // },
+
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
     [theme.breakpoints.down("xs")]: {
       alignItems: "start",
     },
