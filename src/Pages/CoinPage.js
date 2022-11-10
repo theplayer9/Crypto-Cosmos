@@ -119,6 +119,31 @@ const CoinPage = () => {
     }
   };
 
+  const removeFromWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+
+    try {
+      await setDoc(
+        coinRef,
+        {
+          coins: watchlist.filter((watch) => watch !== coin?.id),
+        },
+        { merge: "true" }
+      );
+      setAlert({
+        open: true,
+        message: `${coin.name} Removed from the watchlist!`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
+  };
+
   if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
   // On line 101 i have usesd numberWithCommas function. Here coins is not populated yet. So above the return statement I have passes an If statement , so that if the coin is not populated yet , it will show a LinearProcessor
 
@@ -186,9 +211,9 @@ const CoinPage = () => {
               style={{
                 width: "100%",
                 height: 40,
-                backgroundColor: "#EEBC1D",
+                backgroundColor: inWatchlist ? "#ff0000" : "#EEBC1D",
               }}
-              onClick={addToWatchlist}
+              onClick={inWatchlist ? removeFromWatchlist : addToWatchlist}
             >
               {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
             </Button>
