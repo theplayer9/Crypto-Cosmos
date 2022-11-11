@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
@@ -8,6 +7,7 @@ import { Avatar } from "@material-ui/core";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { numberWithCommas } from "../Banner/Carousel";
+import { AiFillDelete } from "react-icons/ai";
 
 const useStyles = makeStyles({
   container: {
@@ -139,6 +139,11 @@ export default function UserSidebar() {
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}
                             {numberWithCommas(coin.current_price.toFixed(2))}
+                            <AiFillDelete
+                              style={{ cursor: "pointer" }}
+                              fontSize="16"
+                              // onClick={() => removeFromWatchlist(coin)}
+                            />
                           </span>
                         </div>
                       );
