@@ -79,7 +79,7 @@ const CoinsTable = () => {
     );
   };
 
-  console.log("handled data is :", handleSearch());
+  // console.log("handled data is :", handleSearch());
   //   console.log(coins)
 
   return (
