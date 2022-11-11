@@ -56,6 +56,17 @@ const useStyles = makeStyles({
     gap: 12,
     overflowY: "scroll",
   },
+  coin: {
+    padding: 10,
+    borderRadius: 5,
+    color: "black",
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#EEBC1D",
+    boxShadow: "0 0 3px black",
+  },
 });
 
 export default function UserSidebar() {
