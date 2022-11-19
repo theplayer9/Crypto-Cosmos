@@ -6,7 +6,7 @@ import CoinPage from "./Pages/CoinPage";
 import HomePage from "./Pages/Homepage";
 import useStyle from "./style";
 import Alert from "./components/Alert";
-// useStyle is a hook provided by makeStyle from material-Ui
+// useStyle is a hook provided by makeStyle from material-UI
 
 const App = () => {
   const classes = useStyle(); // here we are calling that hook
